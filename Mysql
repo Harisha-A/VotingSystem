@@ -1,0 +1,46 @@
+CREATE DATABASE voting_system;
+ USE voting_system;
+ CREATE TABLE users (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL
+);
+CREATE TABLE officers (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO users (username, password) VALUES
+('user1', 'password1'),
+('user2', 'password2');
+INSERT INTO officers (username, password) VALUES
+('officer', 'officerpassword');
+ CREATE TABLE candidates (
+    candidate_id INT AUTO_INCREMENT PRIMARY KEY,
+    candidate_name VARCHAR(255) NOT NULL
+);
+CREATE TABLE votes (
+    vote_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    candidate_name VARCHAR(255) NOT NULL,
+    UNIQUE(username)
+);
+ INSERT INTO candidates (candidate_name) VALUES ('----> CANDIDATE 1 <----');
+ INSERT INTO candidates (candidate_name) VALUES ('----> CANDIDATE 2 <----');
+INSERT INTO candidates (candidate_name) VALUES ('----> CANDIDATE 3 <----');
+INSERT INTO candidates (candidate_name) VALUES ('----> CANDIDATE 4 <----');
+  INSERT INTO candidates (candidate_name) VALUES ('----> NOTA <----');
+  SELECT candidate_name, COUNT(*) AS vote_count FROM votes GROUP BY candidate_name ORDER BY vote_count DESC;
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+
